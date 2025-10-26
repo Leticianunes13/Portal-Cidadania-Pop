@@ -1,0 +1,377 @@
+/* Importa a fonte 'Lora' do Google Fonts para ser usada em todo o site */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* --- ESTILOS GERAIS E ANIMAÇÕES --- */
+@keyframes rotateBlob {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Lora', serif;
+  color: #0A1C2C;
+  background: linear-gradient(180deg, #ffffff 0%, #F8F9FA 100%);
+  overflow-x: hidden;
+}
+
+/* Novo container flexível para empurrar o rodapé para baixo */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* --- DETALHES DE FUNDO REALÇADOS (BLOODS ANIMADOS) --- */
+.blob1, .blob2 {
+  width: 750px;
+  height: 750px;
+  position: fixed;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(180px);
+  opacity: 0.85;
+}
+
+.blob1 {
+  background: radial-gradient(circle, rgba(30, 63, 102, 0.8), rgba(160, 172, 184, 0.6));
+  top: -350px;
+  left: -400px;
+  animation: rotateBlob 55s linear infinite;
+}
+
+.blob2 {
+  background: radial-gradient(circle, rgba(160, 172, 184, 0.7), rgba(30, 63, 102, 0.6));
+  bottom: -350px;
+  right: -400px;
+  animation: rotateBlob 65s linear infinite reverse;
+}
+
+/* --- CABEÇALHO COM EFEITO DE VIDRO FOSCO --- */
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  padding: 10px 5%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-icon {
+  font-size: 1.8em;
+  color: #1E3F66;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.nav-icon:hover {
+  transform: scale(1.2);
+  color: #0A1C2C;
+}
+
+.search-bar {
+  flex-grow: 1;
+  margin: 0 10px;
+}
+.search-bar input {
+  width: 100%;
+  padding: 10px 20px;
+  border: 1px solid #A0ACB8;
+  border-radius: 40px;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #0A1C2C;
+}
+.search-bar input::placeholder {
+  color: #A0ACB8;
+  opacity: 0.9;
+}
+.search-bar input:focus {
+  outline: none;
+  border-color: #1E3F66;
+  box-shadow: 0 0 0 6px rgba(30, 63, 102, 0.35);
+}
+
+/* --- ESTRUTURA SEM QUADRO (FRAMELESS) --- */
+main {
+  flex-grow: 1;
+  width: 100%;
+  background: linear-gradient(180deg, #ffffff 0%, #F8F9FA 100%);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.content-wrapper {
+  width: 90%;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 30px 0;
+  text-align: center;
+}
+
+h1, h2 {
+  color: #0A1C2C;
+  margin-bottom: 0.8rem;
+  font-size: 2.5rem;
+  text-shadow: 0 5px 22px rgba(10, 28, 44, 0.25);
+  letter-spacing: -0.04em;
+}
+h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.homepage-slogan {
+    font-size: 1.2rem;
+    color: #1E3F66;
+    margin-bottom: 0.8rem;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.homepage-cta-text {
+  font-size: 1.1rem;
+  color: #0A1C2C;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #1E3F66;
+}
+.conteudo-final p, .conteudo-final ul, .conteudo-final h2 {
+    text-align: left;
+    margin-left: 0;
+}
+.conteudo-final ul {
+    list-style-position: inside;
+    margin-bottom: 0.8rem;
+}
+.conteudo-final h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+/* --- ESTILO FINAL PARA O CONTEÚDO --- */
+.conteudo-final {
+    font-size: 16px;       /* tamanho médio de fonte, confortável para leitura */
+    line-height: 1.5;      /* espaçamento entre linhas */
+    margin-bottom: 16px;   /* espaçamento entre blocos */
+}
+
+.conteudo-final p,
+.conteudo-final ul li {
+    margin-bottom: 12px;   /* espaçamento entre parágrafos e itens de lista */
+}
+
+/* --- BOTÕES COM GRADIENTE --- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  margin-top: 40px;
+}
+
+.category-button,
+.category-button:link,
+.category-button:visited {
+  color: #ffffff;
+  background: linear-gradient(135deg, #1E3F66 0%, #29538a 100%);
+  border: none;
+  padding: 22px 30px;
+  text-decoration: none;
+  border-radius: 18px;
+  font-size: 1.3em;
+  font-weight: bold;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(30, 63, 102, 0.55);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  text-align: center;
+}
+.category-button:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(30, 63, 102, 0.7);
+  background: linear-gradient(135deg, #29538a 0%, #1E3F66 100%);
+}
+.category-button .fa-solid {
+    font-size: 1.2em;
+    color: #E8EDF1;
+}
+.category-button i {
+  margin-right: 15px;
+}
+.category-grid.three-column-layout a:nth-last-child(1):nth-child(odd) {
+    grid-column: 1 / -1;
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* --- SEÇÕES DA HOMEPAGE --- */
+body.homepage-body #main-header {
+  display: none;
+}
+body.homepage-body main {
+    padding-top: 0;
+    /* Aqui está a correção: o fundo da main é o gradiente na homepage */
+    background: linear-gradient(180deg, #ffffff 0%, #F8F9FA 100%);
+}
+.homepage-body .top-section {
+  background-color: transparent;
+  padding-top: 10vh;
+  padding-bottom: 20px;
+  position: relative;
+}
+.homepage-body .bottom-section {
+  position: relative;
+  background-color: #1E3F66;
+  padding: 30px 0 10vh 0;
+  color: #ffffff;
+}
+.homepage-body .bottom-section p {
+    color: #ffffff;
+}
+.homepage-body .bottom-section h2 {
+    color: #ffffff;
+    text-shadow: 0 3px 15px rgba(255, 255, 255, 0.2);
+}
+
+.wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 90px;
+}
+.wave-divider .shape-fill {
+  fill: #1E3F66;
+}
+
+/* --- RODAPÉ --- */
+#main-footer {
+    width: 100%;
+    background-color: #1E3F66;
+    color: #A0ACB8;
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: auto;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1150px;
+    margin: 0 auto;
+    gap: 20px;
+}
+.social-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+.social-link:hover {
+    color: #E8EDF1;
+}
+.social-link i {
+    font-size: 1.3rem;
+}
+.footer-text {
+    font-size: 0.8rem;
+    color: #A0ACB8;
+    margin: 0;
+}
+
+/* --- RESPONSIVIDADE (Ajustes para celulares e tablets) --- */
+@media (max-width: 1024px) {
+    h1 { font-size: 2.8rem; }
+    .homepage-slogan { font-size: 1.2rem; }
+    .homepage-cta-text { font-size: 1rem; }
+    p { font-size: 1rem; }
+    .category-button {
+        font-size: 1.1em;
+        padding: 20px 25px;
+        flex-direction: column;
+    }
+    .category-button i { margin-right: 0; margin-bottom: 5px; }
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .social-link {
+        font-size: 1rem;
+    }
+    .footer-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+  .homepage-slogan { font-size: 1rem; }
+  .homepage-cta-text { font-size: 0.9rem; }
+  p { font-size: 0.9rem; }
+  
+  .content-wrapper { padding-top: 20px; }
+
+  .category-grid { grid-template-columns: 1fr; }
+  .category-button {
+      font-size: 1em;
+      padding: 15px 20px;
+      flex-direction: row;
+      justify-content: flex-start;
+  }
+  .category-button i { margin-right: 10px; margin-bottom: 0;}
+
+  .wave-divider svg { height: 80px; }
+
+  header { padding: 8px 3%; }
+  .search-bar input { padding: 8px 15px; font-size: 0.9rem; }
+  .nav-icon { font-size: 1.5em; }
+}
